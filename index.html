@@ -17,7 +17,7 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0}
 body{background:var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;-webkit-text-size-adjust:100%}
-.app{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(96px + env(safe-area-inset-bottom))}
+.app{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(150px + env(safe-area-inset-bottom))}
 h1{font-size:24px;margin:4px 0 2px;letter-spacing:.02em}
 h2{margin:0;font-size:19px}
 .sub{color:var(--sub);font-size:13px}
@@ -34,8 +34,9 @@ h2{margin:0;font-size:19px}
 .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px}
 .seg button{flex:1;border:0;background:transparent;color:var(--sub);font:inherit;font-weight:600;font-size:15px;padding:9px 6px;border-radius:9px}
 .seg button.on{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.14)}
-.add{margin:16px 0 14px}
-.add .btn{padding:16px;font-size:17px;border-color:transparent}
+#adds{position:fixed;left:0;right:0;bottom:calc(57px + env(safe-area-inset-bottom));z-index:15;pointer-events:none;padding:26px 16px 10px;background:linear-gradient(to top,var(--bg) 55%,transparent)}
+#adds .in{max-width:560px;margin:0 auto;display:flex;gap:10px}
+#adds .btn{flex:1;pointer-events:auto;padding:16px;font-size:17px;border-color:transparent;box-shadow:0 2px 8px rgba(0,0,0,.14)}
 .add-meal{background:var(--meal-weak);color:var(--meal-text)}
 .add-stool{background:var(--accent-weak);color:var(--accent-text)}
 .banner{background:var(--meal-weak);color:var(--meal-text);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
@@ -60,8 +61,10 @@ h2{margin:0;font-size:19px}
 .memo{font-size:13px;color:var(--sub)}
 .empty{color:var(--sub);text-align:center;padding:36px 12px;font-size:14px}
 .wrap{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;justify-content:center;z-index:60}
-.sheet{background:var(--card);width:100%;max-width:560px;max-height:92vh;max-height:92dvh;overflow:auto;border-radius:22px 22px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}
-.sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.sheet{background:var(--card);width:100%;max-width:560px;max-height:92%;display:flex;flex-direction:column;overflow:hidden;border-radius:22px 22px 0 0}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 10px}
+.sheet-body{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:4px 16px 18px}
+.sheet-foot{padding:10px 16px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);background:var(--card)}
 .x{border:0;background:var(--bg);color:var(--sub);width:34px;height:34px;border-radius:50%;font-size:20px;line-height:1}
 .form{display:grid;gap:16px}
 .lab{font-size:13px;font-weight:600;color:var(--sub);margin-bottom:6px}
@@ -99,12 +102,13 @@ details.ep[open] summary::after{content:"▴"}
 #tabs button{flex:1;border:0;background:none;color:var(--sub);font:inherit;font-size:11px;font-weight:600;padding:8px 0 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
 #tabs button.on{color:var(--accent)}
 #tabs svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-#toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translate(-50%,10px);background:#222;color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:90;white-space:nowrap}
+#toast{position:fixed;left:50%;bottom:calc(150px + env(safe-area-inset-bottom));transform:translate(-50%,10px);background:#222;color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:90;white-space:nowrap}
 #toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
 <body>
 <div class="app"><main id="view"></main></div>
+<div id="adds"><div class="in"></div></div>
 <nav id="tabs"></nav>
 <div id="toast"></div>
 <script>
@@ -126,6 +130,8 @@ function h(tag,attrs,...kids){
   }
   return e;
 }
+
+const addAll=(p,...k)=>{k.forEach(c=>{if(c)p.append(c);});};
 
 //#analysis-start
 const HOUR=36e5;
@@ -255,17 +261,25 @@ function toast(msg){
 function seg(opts,val,cb){
   const wrap=h('div',{class:'seg'});
   const draw=()=>wrap.replaceChildren(...opts.map(([v,l])=>h('button',{type:'button',class:v===val?'on':'',onclick:()=>{val=v;draw();cb(v);}},l)));
+  wrap.set=v=>{val=v;draw();};
   draw();return wrap;
 }
 function openSheet(title,build){
   const wrap=h('div',{class:'wrap'});
-  const sheet=h('div',{class:'sheet'});
-  const close=()=>{wrap.remove();document.body.style.overflow='';};
-  sheet.append(h('div',{class:'sheet-head'},h('h2',null,title),h('button',{class:'x',type:'button','aria-label':'閉じる',onclick:close},'×')));
-  sheet.append(build(close));
-  wrap.append(sheet);
+  const vv=window.visualViewport;
+  const fit=()=>{wrap.style.top=vv.offsetTop+'px';wrap.style.height=vv.height+'px';wrap.style.bottom='auto';};
+  const close=()=>{
+    wrap.remove();document.body.style.overflow='';
+    if(vv){vv.removeEventListener('resize',fit);vv.removeEventListener('scroll',fit);}
+  };
+  const {body,foot}=build(close);
+  wrap.append(h('div',{class:'sheet'},
+    h('div',{class:'sheet-head'},h('h2',null,title),h('button',{class:'x',type:'button','aria-label':'閉じる',onclick:close},'×')),
+    h('div',{class:'sheet-body'},body),
+    h('div',{class:'sheet-foot'},foot)));
   document.body.append(wrap);
   document.body.style.overflow='hidden';
+  if(vv){vv.addEventListener('resize',fit);vv.addEventListener('scroll',fit);fit();}
 }
 async function fileToDataURL(file){
   const url=URL.createObjectURL(file);
@@ -298,8 +312,16 @@ function openMealForm(entry){
   const st={meal:entry?entry.meal:mealByHour(new Date().getHours()),photo:entry?entry.photo:null};
   openSheet(entry?'食事を編集':'食事を記録',close=>{
     const root=h('div',{class:'form'});
-    const mealSeg=seg(['朝','昼','夜','間食'].map(x=>[x,x]),st.meal,v=>{st.meal=v;});
+    let manual=false;
+    const mealSeg=seg(['朝','昼','夜','間食'].map(x=>[x,x]),st.meal,v=>{st.meal=v;manual=true;});
     const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:Date.now())});
+    const autoMeal=()=>{
+      const t=new Date(dt.value).getTime();
+      if(manual||isNaN(t))return;
+      const m=mealByHour(new Date(t).getHours());
+      st.meal=m;mealSeg.set(m);
+    };
+    dt.addEventListener('input',autoMeal);dt.addEventListener('change',autoMeal);
     const hint=h('div',{class:'note'});
     const prev=h('div',{class:'chips small'});
     const ta=h('textarea',{rows:3,placeholder:'例：白ごはん、味噌汁、納豆',oninput:()=>drawPrev()});
@@ -336,7 +358,7 @@ function openMealForm(entry){
       const e={id:entry?entry.id:uid(),type:'meal',t,meal:st.meal,text,photo:st.photo||null};
       if(await saveEntry(e)){close();render();toast('保存しました');}
     }},'保存');
-    root.append(
+    addAll(root,
       h('div',null,h('div',{class:'lab'},'区分'),mealSeg),
       h('div',null,h('div',{class:'lab'},'日時'),dt),
       h('div',null,h('div',{class:'lab'},'食べた物'),ta,hint,prev),
@@ -346,13 +368,12 @@ function openMealForm(entry){
           h('button',{type:'button',class:'btn',onclick:()=>cam.click()},'カメラで撮る'),
           h('button',{type:'button',class:'btn',onclick:()=>lib.click()},'写真を選ぶ')),
         cam,lib,h('div',{style:'height:8px'}),photoBox),
-      save,
       entry?h('button',{type:'button',class:'btn block danger',onclick:async()=>{
         if(confirm('この記録を削除しますか？')&&await removeEntry(entry.id)){close();render();toast('削除しました');}
       }},'削除'):null
     );
     drawPrev();drawPhoto();
-    return root;
+    return {body:root,foot:save};
   });
 }
 
@@ -380,18 +401,17 @@ function openStoolForm(entry){
       const e={id:entry?entry.id:uid(),type:'stool',t,bristol:st.br,tags:[...st.tags],memo:memo.value.trim()};
       if(await saveEntry(e)){close();render();toast('保存しました');}
     }},'保存');
-    root.append(
+    addAll(root,
       h('div',null,h('div',{class:'lab'},'日時'),dt),
       h('div',null,h('div',{class:'lab'},'便の状態（ブリストルスケール）'),list),
       h('div',null,h('div',{class:'lab'},'いっしょにあった症状'),tagBox),
       h('div',null,h('div',{class:'lab'},'メモ'),memo),
-      save,
       entry?h('button',{type:'button',class:'btn block danger',onclick:async()=>{
         if(confirm('この記録を削除しますか？')&&await removeEntry(entry.id)){close();render();toast('削除しました');}
       }},'削除'):null
     );
     drawList();drawTags();
-    return root;
+    return {body:root,foot:save};
   });
 }
 
@@ -414,9 +434,7 @@ function entryRow(e){
 function viewLog(){
   const v=h('div');
   v.append(h('h1',null,'おなかログ'),h('div',{class:'sub'},fmtDay(Date.now())));
-  v.append(h('div',{class:'row add'},
-    h('button',{class:'btn add-meal',type:'button',onclick:()=>openMealForm()},'＋ 食事'),
-    h('button',{class:'btn add-stool',type:'button',onclick:()=>openStoolForm()},'＋ 便')));
+  v.append(h('div',{style:'height:12px'}));
   if(!dbOK)v.append(h('div',{class:'banner'},h('span',null,'この環境ではデータを保存できません。プライベートブラウズでは使えません。')));
   else if(entries.length&&(!S.lastBackup||Date.now()-S.lastBackup>14*24*HOUR))
     v.append(h('div',{class:'banner'},h('span',null,S.lastBackup?'バックアップが2週間以上前です':'まだバックアップを取っていません'),
@@ -582,11 +600,15 @@ function drawTabs(){
 function setTab(k){tab=k;render();window.scrollTo(0,0);}
 function render(){
   $('#view').replaceChildren(tab==='log'?viewLog():tab==='analysis'?viewAnalysis():viewSettings());
+  $('#adds').style.display=tab==='log'?'':'none';
   drawTabs();
 }
 
 (async function init(){
   loadS();applyTheme();
+  $('#adds .in').append(
+    h('button',{class:'btn add-meal',type:'button',onclick:()=>openMealForm()},'＋ 食事'),
+    h('button',{class:'btn add-stool',type:'button',onclick:()=>openStoolForm()},'＋ 便'));
   try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.theme==='auto')applyTheme();});}catch(e){}
   try{db=await openDB();dbOK=true;entries=(await dbAll())||[];}catch(e){dbOK=false;}
   try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();}catch(e){}
