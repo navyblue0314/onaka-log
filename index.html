@@ -41,11 +41,16 @@ h2{margin:0;font-size:19px}
 .add-stool{background:var(--accent-weak);color:var(--accent-text)}
 .banner{background:var(--meal-weak);color:var(--meal-text);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
 .banner .btn{padding:6px 10px;font-size:13px;border-radius:10px;white-space:nowrap}
-.day{display:flex;align-items:center;gap:8px;margin:20px 2px 8px;color:var(--sub);font-size:13px;font-weight:600}
-.entry{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
-.entry .body{flex:1;min-width:0}
-.entry .top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
-.time{color:var(--sub);font-size:13px;font-variant-numeric:tabular-nums}
+.day{display:flex;align-items:center;gap:8px;margin:16px 2px 6px;color:var(--sub);font-size:13px;font-weight:600}
+.entry{display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 10px;margin-bottom:6px;cursor:pointer}
+.entry .t{width:40px;flex:none;color:var(--sub);font-size:13px;font-variant-numeric:tabular-nums}
+.entry .body{flex:1;min-width:0;line-height:1.5;display:flex;gap:6px;align-items:flex-start}
+.entry .tag{flex:none;margin-top:1px}
+.entry .c{flex:1;min-width:0}
+.entry .text{font-size:15px}
+.entry .chip{font-size:11px;padding:1px 7px;margin-left:4px;display:inline-block}
+.entry .memo{margin-left:6px}
+.entry .thumb{width:44px;height:44px;border-radius:8px}
 .tag{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px}
 .tag.meal{background:var(--meal-weak);color:var(--meal-text)}
 .tag.ok{background:var(--accent-weak);color:var(--accent-text)}
@@ -59,6 +64,27 @@ h2{margin:0;font-size:19px}
 .chip.tap{cursor:pointer}
 .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .memo{font-size:13px;color:var(--sub)}
+.calhead{display:flex;align-items:center;gap:6px;margin:4px 0 8px}
+.caltitle{flex:1;text-align:center;font-weight:700;font-size:17px}
+.calnav{width:44px;height:44px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px;font-size:24px;line-height:1;padding:0}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dow{text-align:center;font-size:12px;color:var(--sub);padding:2px 0}
+.dow.sun{color:var(--bad)}
+.dow.sat{color:#3b82f6}
+.cell{height:52px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:5px 2px 4px;display:flex;flex-direction:column;align-items:center;justify-content:space-between;font:inherit;color:var(--text);min-width:0}
+.cell.blank{border:0;background:transparent}
+.cell .dn{font-size:14px;font-weight:600;line-height:1.2}
+.cell .sc{display:flex;gap:5px;height:16px;line-height:16px}
+.cell .sc i{font-style:normal;font-size:13px;font-weight:700}
+.cy{color:#d98e00}.cg{color:#1ea85a}.cr{color:var(--bad)}
+.cell .dots i{width:7px;height:7px;border-radius:50%;display:block}
+.dm{background:#f59e0b}
+.ds{background:var(--accent)}
+.cell.bad{background:var(--bad-weak);border-color:transparent}
+.cell.bad .dn{color:var(--bad)}
+.cell.today{border:2px solid var(--accent)}
+.cell.sel{box-shadow:0 0 0 2px var(--accent)}
+.lg i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
 .empty{color:var(--sub);text-align:center;padding:36px 12px;font-size:14px}
 .wrap{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;justify-content:center;z-index:60}
 .sheet{background:var(--card);width:100%;max-width:560px;max-height:92%;display:flex;flex-direction:column;overflow:hidden;border-radius:22px 22px 0 0}
@@ -71,15 +97,21 @@ h2{margin:0;font-size:19px}
 input[type=text],input[type=datetime-local],textarea{font:inherit;font-size:16px;width:100%;min-height:46px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:12px;padding:10px 12px;-webkit-appearance:none;appearance:none}
 textarea{resize:vertical}
 .photo img{width:100%;max-height:260px;object-fit:cover;border-radius:12px;margin-bottom:8px;display:block}
-.br{display:flex;gap:12px;align-items:center;text-align:left;width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:inherit;margin-bottom:6px}
-.br .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;flex:none}
+.bristol{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.bristol .legend{display:flex;align-items:center;justify-content:center;text-align:center;color:var(--sub);font-size:12px;padding:0 6px}
+.br{display:flex;gap:8px;align-items:center;text-align:left;width:100%;min-width:0;padding:7px 8px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:inherit;margin:0}
+.br .num{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;flex:none}
+.br b{font-size:14px;line-height:1.3}
 .br.ok .num{background:var(--accent-weak);color:var(--accent-text)}
 .br.warn .num{background:var(--meal-weak);color:var(--meal-text)}
 .br.bad .num{background:var(--bad-weak);color:var(--bad)}
 .br .tx{display:flex;flex-direction:column;min-width:0}
-.br small{color:var(--sub);font-size:12px}
+.br small{color:var(--sub);font-size:11px;line-height:1.3}
 .br.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-weak)}
 .br.bad.on{border-color:var(--bad);box-shadow:0 0 0 2px var(--bad-weak)}
+select{font:inherit;font-size:16px;min-height:40px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:10px;padding:6px 10px}
+.srow{display:flex;align-items:center;gap:10px;padding:6px 0;border-top:1px solid var(--line)}
+.srow b{width:44px}
 .sec{margin:24px 0 4px;font-size:17px;font-weight:700}
 .note{color:var(--sub);font-size:12px;margin:2px 0 10px}
 details.ep{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px}
@@ -178,12 +210,16 @@ function ranking(entries,thr,W,now){
 //#analysis-end
 
 /* ---------- 保存まわり ---------- */
+const DEMO=false,DEMO_ENTRIES=[];
+const DB_NAME=DEMO?'onaka-log-demo':'onaka-log';
+const PHOTO_MONTHS=3;
 let db=null,dbOK=false,entries=[],tab='log';
+let calY=new Date().getFullYear(),calM=new Date().getMonth(),calSel=null;
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
 function openDB(){
   return new Promise((res,rej)=>{
     if(!window.indexedDB)return rej(new Error('no idb'));
-    const r=indexedDB.open('onaka-log',1);
+    const r=indexedDB.open(DB_NAME,1);
     r.onupgradeneeded=()=>{r.result.createObjectStore('entries',{keyPath:'id'});};
     r.onsuccess=()=>res(r.result);
     r.onerror=()=>rej(r.error);
@@ -205,9 +241,17 @@ const dbPut=list=>tx('readwrite',s=>{list.forEach(e=>s.put(e));});
 const dbDel=id=>tx('readwrite',s=>{s.delete(id);});
 const dbClear=()=>tx('readwrite',s=>{s.clear();});
 
-const S={theme:'light',thr:6,win:48,rankSort:'count',lastBackup:0};
-function loadS(){try{Object.assign(S,JSON.parse(localStorage.getItem('onaka-settings')||'{}'));}catch(e){}}
-function saveS(){try{localStorage.setItem('onaka-settings',JSON.stringify(S));}catch(e){}}
+const MEALS=['朝','昼','間食','夜'];
+const DEF_START={朝:4,昼:10,間食:15,夜:17};
+const S={theme:'light',thr:6,win:48,rankSort:'count',lastBackup:0,autoMeal:true,saveSide:'right',logView:'list',firstUse:0,mealStart:{...DEF_START}};
+const SKEY=DEMO?'onaka-settings-demo':'onaka-settings';
+function loadS(){
+  try{Object.assign(S,JSON.parse(localStorage.getItem(SKEY)||'{}'));}catch(e){}
+  S.mealStart=Object.assign({},DEF_START,S.mealStart);
+  if(DEMO)S.lastBackup=Date.now();
+  if(!S.firstUse){S.firstUse=Date.now();if(!DEMO)saveS();}
+}
+function saveS(){try{localStorage.setItem(SKEY,JSON.stringify(S));}catch(e){}}
 function applyTheme(){
   let m=S.theme;
   if(m==='auto')m=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
@@ -228,12 +272,24 @@ async function removeEntry(id){
   return true;
 }
 
+async function purgeOldPhotos(){
+  const c=new Date();c.setMonth(c.getMonth()-PHOTO_MONTHS);
+  const old=entries.filter(e=>e.photo&&e.t<c.getTime());
+  if(!old.length)return 0;
+  const upd=old.map(e=>{const o={...e,photo:null};if(!o.text)o.photoExpired=true;return o;});
+  try{await dbPut(upd);}catch(err){return 0;}
+  const m=new Map(upd.map(e=>[e.id,e]));
+  entries=entries.map(e=>m.get(e.id)||e);
+  return upd.length;
+}
+
 /* ---------- 表示用の小道具 ---------- */
 const pad=n=>String(n).padStart(2,'0');
 const DOW='日月火水木金土';
 const fmtTime=t=>{const d=new Date(t);return pad(d.getHours())+':'+pad(d.getMinutes());};
 const fmtDay=t=>{const d=new Date(t);return (d.getMonth()+1)+'月'+d.getDate()+'日（'+DOW[d.getDay()]+'）';};
 const fmtShort=t=>{const d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+'('+DOW[d.getDay()]+') '+fmtTime(t);};
+const fmtFull=t=>new Date(t).getFullYear()+'/'+fmtShort(t);
 const dayKey=t=>{const d=new Date(t);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());};
 const toLocalInput=t=>dayKey(t)+'T'+fmtTime(t);
 function agoText(ms){
@@ -241,17 +297,27 @@ function agoText(ms){
   if(m<60)return '約'+Math.max(m,1)+'分前';
   return '約'+Math.round(ms/HOUR)+'時間前';
 }
-function mealByHour(hr){return hr<4?'夜':hr<10?'朝':hr<15?'昼':hr<17?'間食':'夜';}
-const BR=[null,
-  ['コロコロ便','硬くて小さな粒状（強い便秘）'],
-  ['硬い便','ソーセージ状だが硬いかたまり'],
-  ['やや硬い便','表面にひびがある'],
-  ['ふつうの便','表面がなめらかで柔らかい'],
-  ['やや柔らかい便','形のはっきりした柔らかいかたまり'],
-  ['泥状便','形がなくぐずぐず（下痢の目安）'],
-  ['水様便','固形物がなく液体状（下痢）']];
+function mealByHour(hr){
+  let best=null,top=null;
+  for(const k of MEALS){
+    const s=S.mealStart[k];
+    if(s<=hr&&(best===null||s>S.mealStart[best]))best=k;
+    if(top===null||s>S.mealStart[top])top=k;
+  }
+  return best||top;
+}
+function initialMeal(t){
+  if(S.autoMeal)return mealByHour(new Date(t||Date.now()).getHours());
+  const last=entries.filter(e=>e.type==='meal').sort((a,b)=>b.t-a.t)[0];
+  return last?last.meal:'朝';
+}
+function rangeText(){
+  const o=MEALS.map(k=>[k,S.mealStart[k]]).sort((a,b)=>a[1]-b[1]);
+  return o.map(([k,s],i)=>k+' '+s+'〜'+o[(i+1)%o.length][1]+'時').join('　');
+}
+const BR=[null,['コロコロ','硬い粒状'],['硬め','硬いかたまり'],['やや硬め','ひび割れあり'],['ふつう','なめらか'],['やや柔らかめ','形はある'],['泥状','形がない'],['水様','液体状']];
 const brClass=n=>n>=6?'bad':n<=2?'warn':'ok';
-const TAGS=['腹痛','吐き気','発熱','急な便意','残便感','血が混じる'];
+const TAGS=['腹痛','吐き気','発熱','急にもよおす','残った感じ','血が混じる'];
 
 let tt;
 function toast(msg){
@@ -272,11 +338,16 @@ function openSheet(title,build){
     wrap.remove();document.body.style.overflow='';
     if(vv){vv.removeEventListener('resize',fit);vv.removeEventListener('scroll',fit);}
   };
-  const {body,foot}=build(close);
+  const {body,save,dirty}=build(close);
+  const cancel=h('button',{type:'button',class:'btn',style:'flex:1',onclick:()=>{
+    if(dirty&&dirty()&&!confirm('入力した内容は保存されません。閉じますか？'))return;
+    close();
+  }},'閉じる');
+  save.style.flex='2';
   wrap.append(h('div',{class:'sheet'},
-    h('div',{class:'sheet-head'},h('h2',null,title),h('button',{class:'x',type:'button','aria-label':'閉じる',onclick:close},'×')),
+    h('div',{class:'sheet-head'},h('h2',null,title)),
     h('div',{class:'sheet-body'},body),
-    h('div',{class:'sheet-foot'},foot)));
+    h('div',{class:'sheet-foot'},h('div',{class:'row'},S.saveSide==='left'?[save,cancel]:[cancel,save]))));
   document.body.append(wrap);
   document.body.style.overflow='hidden';
   if(vv){vv.addEventListener('resize',fit);vv.addEventListener('scroll',fit);fit();}
@@ -308,16 +379,16 @@ function topItems(n){
 }
 
 /* ---------- 入力フォーム ---------- */
-function openMealForm(entry){
-  const st={meal:entry?entry.meal:mealByHour(new Date().getHours()),photo:entry?entry.photo:null};
+function openMealForm(entry,t0){
+  const st={meal:entry?entry.meal:initialMeal(t0),photo:entry?entry.photo:null};
   openSheet(entry?'食事を編集':'食事を記録',close=>{
     const root=h('div',{class:'form'});
     let manual=false;
     const mealSeg=seg(['朝','昼','夜','間食'].map(x=>[x,x]),st.meal,v=>{st.meal=v;manual=true;});
-    const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:Date.now())});
+    const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:(t0||Date.now()))});
     const autoMeal=()=>{
       const t=new Date(dt.value).getTime();
-      if(manual||isNaN(t))return;
+      if(manual||!S.autoMeal||isNaN(t))return;
       const m=mealByHour(new Date(t).getHours());
       st.meal=m;mealSeg.set(m);
     };
@@ -350,7 +421,7 @@ function openMealForm(entry){
     }
     const cam=h('input',{type:'file',accept:'image/*',capture:'environment',hidden:true,onchange:pick});
     const lib=h('input',{type:'file',accept:'image/*',hidden:true,onchange:pick});
-    const save=h('button',{class:'btn primary block',type:'button',onclick:async()=>{
+    const save=h('button',{class:'btn primary',type:'button',onclick:async()=>{
       const text=ta.value.trim();
       const t=new Date(dt.value).getTime();
       if(isNaN(t)){toast('日時を入れてください');return;}
@@ -367,26 +438,29 @@ function openMealForm(entry){
         h('div',{class:'row'},
           h('button',{type:'button',class:'btn',onclick:()=>cam.click()},'カメラで撮る'),
           h('button',{type:'button',class:'btn',onclick:()=>lib.click()},'写真を選ぶ')),
-        cam,lib,h('div',{style:'height:8px'}),photoBox),
+        cam,lib,h('div',{style:'height:8px'}),photoBox,h('div',{class:'note'},'写真は、この記録の日時から3か月たつと自動で削除されます（文字の記録は残ります）。')),
       entry?h('button',{type:'button',class:'btn block danger',onclick:async()=>{
         if(confirm('この記録を削除しますか？')&&await removeEntry(entry.id)){close();render();toast('削除しました');}
       }},'削除'):null
     );
     drawPrev();drawPhoto();
-    return {body:root,foot:save};
+    const snap=()=>JSON.stringify([dt.value,st.meal,ta.value.trim(),st.photo?st.photo.length:0]);
+    const base=snap();
+    return {body:root,save,dirty:()=>snap()!==base};
   });
 }
 
-function openStoolForm(entry){
+function openStoolForm(entry,t0){
   const st={br:entry?entry.bristol:0,tags:new Set(entry?entry.tags||[]:[])};
-  openSheet(entry?'便を編集':'便を記録',close=>{
+  openSheet(entry?'うんを編集':'うんを記録',close=>{
     const root=h('div',{class:'form'});
-    const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:Date.now())});
-    const list=h('div');
+    const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:(t0||Date.now()))});
+    const list=h('div',{class:'bristol'});
     const drawList=()=>list.replaceChildren(...[1,2,3,4,5,6,7].map(n=>h('button',{
       type:'button',class:'br '+brClass(n)+(st.br===n?' on':''),onclick:()=>{st.br=n;drawList();}},
       h('span',{class:'num'},n),
-      h('span',{class:'tx'},h('b',null,BR[n][0]),h('small',null,BR[n][1])))));
+      h('span',{class:'tx'},h('b',null,BR[n][0]),h('small',null,BR[n][1])))),
+      h('div',{class:'legend'},'6〜7は下したときの目安'));
     const tagBox=h('div',{class:'chips'});
     const drawTags=()=>tagBox.replaceChildren(...TAGS.map(x=>h('button',{type:'button',class:'chip tap'+(st.tags.has(x)?' on':''),onclick:()=>{
       if(st.tags.has(x))st.tags.delete(x);else st.tags.add(x);
@@ -394,16 +468,16 @@ function openStoolForm(entry){
     }},x)));
     const memo=h('input',{type:'text',placeholder:'メモ（任意）　例：おなかがキリキリ痛む'});
     memo.value=entry?entry.memo||'':'';
-    const save=h('button',{class:'btn primary block',type:'button',onclick:async()=>{
+    const save=h('button',{class:'btn primary',type:'button',onclick:async()=>{
       const t=new Date(dt.value).getTime();
       if(isNaN(t)){toast('日時を入れてください');return;}
-      if(!st.br){toast('便の状態を選んでください');return;}
+      if(!st.br){toast('うんの状態を選んでください');return;}
       const e={id:entry?entry.id:uid(),type:'stool',t,bristol:st.br,tags:[...st.tags],memo:memo.value.trim()};
       if(await saveEntry(e)){close();render();toast('保存しました');}
     }},'保存');
     addAll(root,
       h('div',null,h('div',{class:'lab'},'日時'),dt),
-      h('div',null,h('div',{class:'lab'},'便の状態（ブリストルスケール）'),list),
+      h('div',null,h('div',{class:'lab'},'うんの状態（ブリストルスケール）'),list),
       h('div',null,h('div',{class:'lab'},'いっしょにあった症状'),tagBox),
       h('div',null,h('div',{class:'lab'},'メモ'),memo),
       entry?h('button',{type:'button',class:'btn block danger',onclick:async()=>{
@@ -411,7 +485,9 @@ function openStoolForm(entry){
       }},'削除'):null
     );
     drawList();drawTags();
-    return {body:root,foot:save};
+    const snap=()=>JSON.stringify([dt.value,st.br,[...st.tags].sort(),memo.value.trim()]);
+    const base=snap();
+    return {body:root,save,dirty:()=>snap()!==base};
   });
 }
 
@@ -419,38 +495,99 @@ function openStoolForm(entry){
 function entryRow(e){
   const body=e.type==='meal'
     ?h('div',{class:'body'},
-        h('div',{class:'top'},h('span',{class:'tag meal'},e.meal),h('span',{class:'time'},fmtTime(e.t))),
-        e.text?h('div',{class:'text'},e.text):h('div',{class:'text sub'},'（写真のみ）'))
+        h('span',{class:'tag meal'},e.meal),
+        h('div',{class:'c'},e.text?h('span',{class:'text'},e.text):h('span',{class:'text sub'},e.photoExpired?'（写真のみ・削除済み）':'（写真のみ）')))
     :h('div',{class:'body'},
-        h('div',{class:'top'},h('span',{class:'tag '+brClass(e.bristol)},'便 '+e.bristol),h('span',{class:'time'},fmtTime(e.t))),
-        h('div',{class:'text'},BR[e.bristol][0]),
-        ((e.tags&&e.tags.length)||e.memo)?h('div',{class:'chips small',style:'margin-top:4px'},
+        h('span',{class:'tag '+brClass(e.bristol)},'うん '+e.bristol),
+        h('div',{class:'c'},
+          h('span',{class:'text'},BR[e.bristol][0]),
           ...(e.tags||[]).map(x=>h('span',{class:'chip'},x)),
-          e.memo?h('span',{class:'memo'},e.memo):null):null);
+          e.memo?h('span',{class:'memo'},e.memo):null));
   return h('div',{class:'entry',role:'button',tabindex:'0',onclick:()=>e.type==='meal'?openMealForm(e):openStoolForm(e)},
-    body,e.photo?h('img',{class:'thumb',src:e.photo,alt:''}):null);
+    h('div',{class:'t'},fmtTime(e.t)),body,e.photo?h('img',{class:'thumb',src:e.photo,alt:''}):null);
 }
 
-function viewLog(){
-  const v=h('div');
-  v.append(h('h1',null,'おなかログ'),h('div',{class:'sub'},fmtDay(Date.now())));
-  v.append(h('div',{style:'height:12px'}));
-  if(!dbOK)v.append(h('div',{class:'banner'},h('span',null,'この環境ではデータを保存できません。プライベートブラウズでは使えません。')));
-  else if(entries.length&&(!S.lastBackup||Date.now()-S.lastBackup>14*24*HOUR))
-    v.append(h('div',{class:'banner'},h('span',null,S.lastBackup?'バックアップが2週間以上前です':'まだバックアップを取っていません'),
-      h('button',{class:'btn',type:'button',onclick:()=>setTab('settings')},'設定へ')));
-  if(!entries.length){
-    v.append(h('div',{class:'empty'},'まだ記録がありません。上のボタンから、食事か便を記録してください。'));
-    return v;
-  }
+function timelineNode(){
+  const box=h('div');
   const hasD=new Set(entries.filter(e=>isDiarrhea(e,S.thr)).map(e=>dayKey(e.t)));
   const sorted=[...entries].sort((a,b)=>b.t-a.t);
   let cur='';
   for(const e of sorted){
     const k=dayKey(e.t);
-    if(k!==cur){cur=k;v.append(h('div',{class:'day'},fmtDay(e.t),hasD.has(k)?h('span',{class:'tag bad'},'下痢あり'):null));}
-    v.append(entryRow(e));
+    if(k!==cur){cur=k;box.append(h('div',{class:'day'},fmtDay(e.t),hasD.has(k)?h('span',{class:'tag bad'},'下した'):null));}
+    box.append(entryRow(e));
   }
+  return box;
+}
+function calNode(){
+  const box=h('div');
+  const now=new Date();
+  const td={y:now.getFullYear(),m:now.getMonth(),d:now.getDate()};
+  if(!calSel)calSel=td;
+  const keyOf=(y,m,d)=>y+'-'+pad(m+1)+'-'+pad(d);
+  const info=new Map();
+  for(const e of entries){
+    const k=dayKey(e.t);
+    let r=info.get(k);if(!r){r={meal:0,stool:0,y:0,g:0,r:0,bad:false};info.set(k,r);}
+    if(e.type==='meal')r.meal++;else{r.stool++;if(e.bristol<=2)r.y++;else if(e.bristol<=5)r.g++;else r.r++;if(isDiarrhea(e,S.thr))r.bad=true;}
+  }
+  const go=n=>{
+    let m=calM+n,y=calY;
+    if(m<0){m=11;y--;}else if(m>11){m=0;y++;}
+    calY=y;calM=m;calSel=(y===td.y&&m===td.m)?td:{y,m,d:1};
+    render();
+  };
+  box.append(h('div',{class:'calhead'},
+    h('button',{class:'calnav',type:'button','aria-label':'前の月',onclick:()=>go(-1)},'‹'),
+    h('div',{class:'caltitle'},calY+'年'+(calM+1)+'月'),
+    h('button',{class:'calnav',type:'button','aria-label':'次の月',onclick:()=>go(1)},'›'),
+    h('button',{class:'btn small',type:'button',onclick:()=>{calY=td.y;calM=td.m;calSel=td;render();}},'今日')));
+  const grid=h('div',{class:'cal'});
+  [...'日月火水木金土'].forEach((w,i)=>grid.append(h('div',{class:'dow'+(i===0?' sun':i===6?' sat':'')},w)));
+  const first=new Date(calY,calM,1).getDay(),dim=new Date(calY,calM+1,0).getDate();
+  for(let i=0;i<first;i++)grid.append(h('div',{class:'cell blank'}));
+  for(let d=1;d<=dim;d++){
+    const r=info.get(keyOf(calY,calM,d));
+    const isToday=calY===td.y&&calM===td.m&&d===td.d;
+    const isSel=calSel.y===calY&&calSel.m===calM&&calSel.d===d;
+    grid.append(h('button',{type:'button',
+      class:'cell'+(r&&r.bad?' bad':'')+(isToday?' today':'')+(isSel?' sel':''),
+      onclick:()=>{calSel={y:calY,m:calM,d};render();}},
+      h('span',{class:'dn'},d),
+      h('span',{class:'sc'},r&&r.y?h('i',{class:'cy'},r.y):null,r&&r.g?h('i',{class:'cg'},r.g):null,r&&r.r?h('i',{class:'cr'},r.r):null)));
+  }
+  box.append(grid,h('div',{style:'height:8px'}));
+  const sk=keyOf(calSel.y,calSel.m,calSel.d);
+  const list=entries.filter(e=>dayKey(e.t)===sk).sort((a,b)=>a.t-b.t);
+  const sr=info.get(sk);
+  box.append(h('div',{class:'day'},fmtDay(new Date(calSel.y,calSel.m,calSel.d).getTime()),sr&&sr.bad?h('span',{class:'tag bad'},'下した'):null));
+  if(!list.length)box.append(h('div',{class:'empty',style:'padding:18px'},'この日の記録はありません'));
+  list.forEach(e=>box.append(entryRow(e)));
+  return box;
+}
+function addTime(){
+  if(tab==='log'&&S.logView==='cal'&&calSel){
+    const n=new Date();
+    if(calSel.y===n.getFullYear()&&calSel.m===n.getMonth()&&calSel.d===n.getDate())return Date.now();
+    return new Date(calSel.y,calSel.m,calSel.d,n.getHours(),n.getMinutes()).getTime();
+  }
+  return Date.now();
+}
+function viewLog(){
+  const v=h('div');
+  v.append(h('h1',null,'おなかログ'),h('div',{class:'sub'},fmtDay(Date.now())));
+  v.append(h('div',{style:'margin:12px 0'},seg([['list','タイムライン'],['cal','カレンダー']],S.logView,x=>{S.logView=x;saveS();render();})));
+  if(!dbOK)v.append(h('div',{class:'banner'},h('span',null,'この環境ではデータを保存できません。プライベートブラウズでは使えません。')));
+  else if(entries.length&&Date.now()-(S.lastBackup||S.firstUse)>30*24*HOUR)
+    v.append(h('div',{class:'banner'},
+      h('span',null,S.lastBackup?'最後のバックアップは '+fmtFull(S.lastBackup)+' です（30日以上たちました）':'まだバックアップを取っていません（使い始めて30日以上たちました）'),
+      h('button',{class:'btn',type:'button',onclick:()=>setTab('settings')},'設定へ')));
+  if(S.logView==='cal'){v.append(calNode());return v;}
+  if(!entries.length){
+    v.append(h('div',{class:'empty'},'まだ記録がありません。下のボタンから、食事か、うんを記録してください。'));
+    return v;
+  }
+  v.append(timelineNode());
   return v;
 }
 
@@ -458,40 +595,40 @@ function viewAnalysis(){
   const v=h('div');
   const W=S.win,thr=S.thr;
   v.append(h('h1',null,'分析'));
-  v.append(h('div',{class:'sub',style:'margin-bottom:12px'},'下痢＝ブリストル'+thr+(thr===7?'':'以上')+'の便（設定で変更できます）'));
+  v.append(h('div',{class:'sub',style:'margin-bottom:12px'},'下した＝ブリストル'+thr+(thr===7?'':'以上')+'のうん（設定で変更できます）'));
   v.append(h('div',{class:'lab'},'さかのぼる時間'),seg([[24,'24時間'],[48,'48時間']],W,x=>{S.win=x;saveS();render();}));
   const eps=getEpisodes(entries,thr);
   const nm=entries.filter(e=>e.type==='meal').length,ns=entries.length-nm;
-  v.append(h('div',{class:'sub',style:'margin:10px 2px 0'},'食事 '+nm+'件 ／ 便 '+ns+'件 ／ 下痢 '+eps.length+'回'));
+  v.append(h('div',{class:'sub',style:'margin:10px 2px 0'},'食事 '+nm+'件 ／ うん '+ns+'件 ／ 下した '+eps.length+'回'));
   if(!eps.length){
-    v.append(h('div',{class:'empty'},'下痢の記録がまだありません。記録がたまると、ここに「前に食べた物」の一覧とランキングが出ます。'));
+    v.append(h('div',{class:'empty'},'下した記録がまだありません。記録がたまると、ここに「前に食べた物」の一覧とランキングが出ます。'));
     return v;
   }
-  v.append(h('div',{class:'sec'},'下痢の前に食べた物'));
-  v.append(h('div',{class:'note'},'下痢が始まった時刻から、'+W+'時間さかのぼった食事です。近い順に並んでいます。'));
+  v.append(h('div',{class:'sec'},'下す前に食べた物'));
+  v.append(h('div',{class:'note'},'下し始めた時刻から、'+W+'時間さかのぼった食事です。近い順に並んでいます。'));
   [...eps].reverse().forEach((ep,i)=>{
     const ms=mealsBefore(entries,ep.start,W);
     const d=h('details',{class:'ep'},h('summary',null,
       h('span',null,fmtShort(ep.start)),
-      h('span',{class:'tag bad'},'便 '+ep.max+(ep.events.length>1?'（'+ep.events.length+'回）':''))));
+      h('span',{class:'tag bad'},'うん '+ep.max+(ep.events.length>1?'（'+ep.events.length+'回）':''))));
     if(i===0)d.setAttribute('open','');
     if(!ms.length)d.append(h('div',{class:'note',style:'margin-top:10px'},'この間の食事の記録がありません（記録もれの可能性があります）'));
     ms.forEach(m=>d.append(h('div',{class:'ml'},
       h('div',{class:'ago'},agoText(ep.start-m.t)),
-      h('div',{class:'body'},h('span',{class:'tag meal'},m.meal),' ',m.text?h('span',{class:'text'},m.text):h('span',{class:'sub'},'（写真のみ）')),
+      h('div',{class:'body'},h('span',{class:'tag meal'},m.meal),' ',m.text?h('span',{class:'text'},m.text):h('span',{class:'sub'},m.photoExpired?'（写真のみ・削除済み）':'（写真のみ）')),
       m.photo?h('img',{class:'thumb',src:m.photo,alt:'',style:'width:44px;height:44px'}):null)));
     v.append(d);
   });
 
-  v.append(h('div',{class:'sec'},'下痢の前に食べた物ランキング'));
+  v.append(h('div',{class:'sec'},'下す前に食べた物ランキング'));
   v.append(seg([['count','回数順'],['rate','割合順']],S.rankSort,x=>{S.rankSort=x;saveS();render();}));
   let rows=ranking(entries,thr,W,Date.now()).filter(r=>r.hit>0);
   if(S.rankSort==='rate'){
     rows=rows.filter(r=>r.n>=2).sort((a,b)=>(b.hit/b.n-a.hit/a.n)||b.hit-a.hit);
-    v.append(h('div',{class:'note',style:'margin-top:8px'},'2回以上食べた物だけを、「食べた回のうち下痢が続いた割合」の高い順に並べています。'));
+    v.append(h('div',{class:'note',style:'margin-top:8px'},'2回以上食べた物だけを、「食べた回のうち、その後に下した割合」の高い順に並べています。'));
   }else{
     rows.sort((a,b)=>b.hit-a.hit||(b.hit/b.n-a.hit/a.n));
-    v.append(h('div',{class:'note',style:'margin-top:8px'},'食べてから'+W+'時間以内に下痢があった回数の多い順です。白ごはんなど毎日食べる物は回数が多くなりがちなので、右側の割合もあわせて見てください。'));
+    v.append(h('div',{class:'note',style:'margin-top:8px'},'食べてから'+W+'時間以内に下した回数の多い順です。白ごはんなど毎日食べる物は回数が多くなりがちなので、右側の割合もあわせて見てください。'));
   }
   rows=rows.slice(0,20);
   if(!rows.length)v.append(h('div',{class:'empty'},'表示できる食べ物がありません。食べた物の名前を入れて記録すると集計されます。'));
@@ -505,7 +642,7 @@ function viewAnalysis(){
       h('div',{class:'bar'},h('i',{style:'width:'+Math.round(r.hit/max*100)+'%'})))));
     v.append(box);
   }
-  v.append(h('div',{class:'note'},'写真だけの記録は集計に入りません。便の記録が抜けていると、結果がずれます。原因を決めつけるものではなく、目安として使ってください。血便・高熱・強い腹痛が続くときは医療機関に相談してください。'));
+  v.append(h('div',{class:'note'},'写真だけの記録は集計に入りません。うんの記録が抜けていると、結果がずれます。原因を決めつけるものではなく、目安として使ってください。血便・高熱・強い腹痛が続くときは医療機関に相談してください。'));
   return v;
 }
 
@@ -525,7 +662,7 @@ function clean(e){
   const t=Number(e.t);if(!isFinite(t))return null;
   const id=String(e.id||uid());
   if(e.type==='meal')return{id,type:'meal',t,meal:['朝','昼','夜','間食'].includes(e.meal)?e.meal:'間食',text:String(e.text||''),
-    photo:typeof e.photo==='string'&&e.photo.startsWith('data:image/')?e.photo:null};
+    photo:typeof e.photo==='string'&&e.photo.startsWith('data:image/')?e.photo:null,photoExpired:!!e.photoExpired};
   if(e.type==='stool'){
     const b=Math.round(Number(e.bristol));if(!(b>=1&&b<=7))return null;
     return{id,type:'stool',t,bristol:b,tags:Array.isArray(e.tags)?e.tags.map(String).slice(0,10):[],memo:String(e.memo||'')};
@@ -542,6 +679,7 @@ async function importFile(f){
     const map=new Map(entries.map(e=>[e.id,e]));
     list.forEach(e=>map.set(e.id,e));
     entries=[...map.values()];
+    await purgeOldPhotos();
     render();toast(list.length+'件を復元しました');
   }catch(err){toast('ファイルを読み込めませんでした');}
 }
@@ -551,21 +689,40 @@ function viewSettings(){
   v.append(h('h1',null,'設定'),h('div',{style:'height:12px'}));
   v.append(h('div',{class:'card'},h('h3',null,'見た目'),
     seg([['light','ライト'],['dark','ダーク'],['auto','端末に合わせる']],S.theme,x=>{S.theme=x;saveS();applyTheme();})));
-  v.append(h('div',{class:'card'},h('h3',null,'下痢とみなす便の基準'),
+  v.append(h('div',{class:'card'},h('h3',null,'下したとみなす基準'),
     seg([[5,'5以上'],[6,'6以上'],[7,'7のみ']],S.thr,x=>{S.thr=x;saveS();}),
-    h('div',{class:'note',style:'margin-top:8px'},'ブリストルスケールの数字です。分析と「下痢あり」の表示に使います。')));
+    h('div',{class:'note',style:'margin-top:8px'},'ブリストルスケールの数字です。分析と「下した」の表示に使います。')));
+  const rangeEl=h('div',{class:'note',style:'margin:8px 0 0'});
+  const upd=()=>{rangeEl.textContent='現在の区切り：'+rangeText();};
+  const rows=MEALS.map(k=>{
+    const sel=h('select',{onchange:()=>{S.mealStart[k]=Number(sel.value);saveS();upd();}},
+      ...Array.from({length:24},(_,n)=>h('option',{value:n},n+'時')));
+    sel.value=String(S.mealStart[k]);
+    return h('div',{class:'srow'},h('b',null,k),sel,h('span',{class:'sub'},'から'));
+  });
+  upd();
+  v.append(h('div',{class:'card'},h('h3',null,'食事の区分の自動選択'),
+    seg([[true,'オン'],[false,'オフ']],S.autoMeal,x=>{S.autoMeal=x;saveS();}),
+    h('div',{class:'note',style:'margin:8px 0 6px'},'食事の日時に合わせて、朝・昼・間食・夜を自動で選びます。各区分は、次の区分の開始時刻まで続きます。オフにすると、前回の食事と同じ区分から始まります。'),
+    ...rows,rangeEl,
+    h('button',{class:'btn small',type:'button',style:'margin-top:8px',onclick:()=>{S.mealStart={...DEF_START};saveS();render();}},'初期値に戻す')));
+  v.append(h('div',{class:'card'},h('h3',null,'入力画面のボタンの位置'),
+    seg([['right','保存を右'],['left','保存を左']],S.saveSide,x=>{S.saveSide=x;saveS();}),
+    h('div',{class:'note',style:'margin-top:8px'},'入力画面の下に「閉じる」と「保存」が並びます。利き手に合わせて入れ替えられます。')));
   const info=h('div',{class:'note'});
   if(navigator.storage&&navigator.storage.estimate)navigator.storage.estimate().then(r=>{info.textContent='このアプリの使用量：約'+(r.usage/1048576).toFixed(1)+'MB';}).catch(()=>{});
   const restore=h('input',{type:'file',accept:'application/json,.json',hidden:true,onchange:ev=>{const f=ev.target.files[0];ev.target.value='';if(f)importFile(f);}});
   v.append(h('div',{class:'card stack'},h('h3',null,'データ'),
-    h('div',{class:'note'},'記録は '+entries.length+' 件。最後のバックアップ：'+(S.lastBackup?fmtShort(S.lastBackup):'なし')),
+    h('div',{class:'note'},'記録は '+entries.length+' 件。最後のバックアップ：'+(S.lastBackup?fmtFull(S.lastBackup):'なし')),
+    h('div',{class:'note'},'写真は、記録の日時から3か月たつと自動で削除されます。文字の記録は残ります。'),
     h('button',{class:'btn block primary',type:'button',onclick:async()=>{
       const blob=new Blob([JSON.stringify({app:'onaka-log',version:1,exported:Date.now(),entries})],{type:'application/json'});
       if(await shareOrDownload('onaka-log-backup-'+dayKey(Date.now())+'.json',blob)){S.lastBackup=Date.now();saveS();render();toast('書き出しました');}
     }},'バックアップを書き出す（写真つき）'),
+    h('div',{class:'note'},'書き出すときに選んだ場所（ファイルアプリ、iCloud Drive、AirDropなど）に保存されます。30日以上バックアップがないと、記録画面でお知らせします。'),
     h('button',{class:'btn block',type:'button',onclick:async()=>{
       const rows=[['日時','種類','区分','内容','ブリストル','症状','メモ']];
-      [...entries].sort((a,b)=>a.t-b.t).forEach(e=>rows.push([dayKey(e.t)+' '+fmtTime(e.t),e.type==='meal'?'食事':'便',e.meal||'',e.text||'',e.bristol||'',(e.tags||[]).join('/'),e.memo||'']));
+      [...entries].sort((a,b)=>a.t-b.t).forEach(e=>rows.push([dayKey(e.t)+' '+fmtTime(e.t),e.type==='meal'?'食事':'うん',e.meal||'',e.text||'',e.bristol||'',(e.tags||[]).join('/'),e.memo||'']));
       const blob=new Blob(['﻿'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n')],{type:'text/csv'});
       await shareOrDownload('onaka-log-'+dayKey(Date.now())+'.csv',blob);
     }},'CSVで書き出す（写真なし）'),
@@ -577,7 +734,7 @@ function viewSettings(){
       try{await dbClear();entries=[];render();toast('すべて削除しました');}catch(err){toast('削除に失敗しました');}
     }},'すべての記録を削除'),info));
   v.append(h('div',{class:'card'},h('h3',null,'このアプリについて'),
-    h('div',{class:'note',style:'font-size:13px'},'記録はこのiPhoneの中だけに保存され、外部には送信されません。ホーム画面に追加したアイコンから開いたときの記録は、Safariで直接開いたときの記録とは別に保存されます。機種変更や端末の初期化に備えて、ときどきバックアップを書き出してください。')));
+    h('div',{class:'note',style:'font-size:13px'},'記録はこのiPhoneの中だけに保存され、外部には送信されません。ホーム画面に追加したアイコンから開いたときの記録は、Safariで直接開いたときの記録とは別に保存されます。機種変更や端末の初期化に備えて、ときどきバックアップを書き出してください。ホーム画面のアイコンを削除すると、記録も消えます。')));
   return v;
 }
 
@@ -607,10 +764,19 @@ function render(){
 (async function init(){
   loadS();applyTheme();
   $('#adds .in').append(
-    h('button',{class:'btn add-meal',type:'button',onclick:()=>openMealForm()},'＋ 食事'),
-    h('button',{class:'btn add-stool',type:'button',onclick:()=>openStoolForm()},'＋ 便'));
+    h('button',{class:'btn add-meal',type:'button',onclick:()=>openMealForm(null,addTime())},'＋ 食事'),
+    h('button',{class:'btn add-stool',type:'button',onclick:()=>openStoolForm(null,addTime())},'＋ うん'));
   try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.theme==='auto')applyTheme();});}catch(e){}
-  try{db=await openDB();dbOK=true;entries=(await dbAll())||[];}catch(e){dbOK=false;}
+  try{
+    db=await openDB();dbOK=true;
+    if(DEMO){
+      await dbClear();
+      const now=Date.now();
+      await dbPut(DEMO_ENTRIES.map((e,i)=>{const o={...e,id:'demo'+i,t:now-e.ago*HOUR};delete o.ago;return o;}));
+    }
+    entries=(await dbAll())||[];
+    await purgeOldPhotos();
+  }catch(e){dbOK=false;}
   try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();}catch(e){}
   render();
 })();
