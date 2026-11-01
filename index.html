@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="ja" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="おなかログ">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>おなかログ</title>
+<style>
+:root{--bg:#f6f7f8;--card:#fff;--text:#1c1f23;--sub:#6b7280;--line:#e8eaed;--accent:#0f9d8a;--accent-weak:#e3f5f2;--accent-text:#0b7a6b;--meal-weak:#fff4de;--meal-text:#9a5b00;--bad:#e5484d;--bad-weak:#fdecec;--shadow:0 1px 2px rgba(16,24,40,.05)}
+[data-theme=dark]{--bg:#0e1113;--card:#181c1f;--text:#eceff1;--sub:#9aa3ab;--line:#262b30;--accent:#2cc4ae;--accent-weak:#12332e;--accent-text:#6fe3d1;--meal-weak:#3a2f14;--meal-text:#ffd082;--bad:#ff6b70;--bad-weak:#3b1a1c;--shadow:none}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;-webkit-text-size-adjust:100%}
+.app{max-width:560px;margin:0 auto;padding:calc(env(safe-area-inset-top) + 14px) 16px calc(96px + env(safe-area-inset-bottom))}
+h1{font-size:24px;margin:4px 0 2px;letter-spacing:.02em}
+h2{margin:0;font-size:19px}
+.sub{color:var(--sub);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;box-shadow:var(--shadow);margin-bottom:12px}
+.card h3{margin:0 0 10px;font-size:15px}
+.btn{appearance:none;-webkit-appearance:none;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:14px;padding:12px 16px;font:inherit;font-weight:600;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.danger{color:var(--bad)}
+.btn.block{display:block;width:100%}
+.btn.small{padding:8px 12px;font-size:14px}
+.row{display:flex;gap:10px}
+.row>*{flex:1}
+.stack>*{margin-bottom:8px}
+.seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:transparent;color:var(--sub);font:inherit;font-weight:600;font-size:15px;padding:9px 6px;border-radius:9px}
+.seg button.on{background:var(--card);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.add{margin:16px 0 14px}
+.add .btn{padding:16px;font-size:17px;border-color:transparent}
+.add-meal{background:var(--meal-weak);color:var(--meal-text)}
+.add-stool{background:var(--accent-weak);color:var(--accent-text)}
+.banner{background:var(--meal-weak);color:var(--meal-text);border-radius:12px;padding:10px 12px;font-size:13px;display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.banner .btn{padding:6px 10px;font-size:13px;border-radius:10px;white-space:nowrap}
+.day{display:flex;align-items:center;gap:8px;margin:20px 2px 8px;color:var(--sub);font-size:13px;font-weight:600}
+.entry{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
+.entry .body{flex:1;min-width:0}
+.entry .top{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.time{color:var(--sub);font-size:13px;font-variant-numeric:tabular-nums}
+.tag{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px}
+.tag.meal{background:var(--meal-weak);color:var(--meal-text)}
+.tag.ok{background:var(--accent-weak);color:var(--accent-text)}
+.tag.warn{background:var(--meal-weak);color:var(--meal-text)}
+.tag.bad{background:var(--bad-weak);color:var(--bad)}
+.text{font-size:16px;word-break:break-word}
+.thumb{width:56px;height:56px;border-radius:10px;object-fit:cover;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:inherit;font-size:13px;padding:5px 11px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--text)}
+.chips.small .chip{font-size:12px;padding:2px 8px}
+.chip.tap{cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.memo{font-size:13px;color:var(--sub)}
+.empty{color:var(--sub);text-align:center;padding:36px 12px;font-size:14px}
+.wrap{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;justify-content:center;z-index:60}
+.sheet{background:var(--card);width:100%;max-width:560px;max-height:92vh;max-height:92dvh;overflow:auto;border-radius:22px 22px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}
+.sheet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.x{border:0;background:var(--bg);color:var(--sub);width:34px;height:34px;border-radius:50%;font-size:20px;line-height:1}
+.form{display:grid;gap:16px}
+.lab{font-size:13px;font-weight:600;color:var(--sub);margin-bottom:6px}
+input[type=text],input[type=datetime-local],textarea{font:inherit;font-size:16px;width:100%;min-height:46px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:12px;padding:10px 12px;-webkit-appearance:none;appearance:none}
+textarea{resize:vertical}
+.photo img{width:100%;max-height:260px;object-fit:cover;border-radius:12px;margin-bottom:8px;display:block}
+.br{display:flex;gap:12px;align-items:center;text-align:left;width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:inherit;margin-bottom:6px}
+.br .num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;flex:none}
+.br.ok .num{background:var(--accent-weak);color:var(--accent-text)}
+.br.warn .num{background:var(--meal-weak);color:var(--meal-text)}
+.br.bad .num{background:var(--bad-weak);color:var(--bad)}
+.br .tx{display:flex;flex-direction:column;min-width:0}
+.br small{color:var(--sub);font-size:12px}
+.br.on{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-weak)}
+.br.bad.on{border-color:var(--bad);box-shadow:0 0 0 2px var(--bad-weak)}
+.sec{margin:24px 0 4px;font-size:17px;font-weight:700}
+.note{color:var(--sub);font-size:12px;margin:2px 0 10px}
+details.ep{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:8px}
+details.ep summary{font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px;cursor:pointer;list-style:none}
+details.ep summary::-webkit-details-marker{display:none}
+details.ep summary::after{content:"▾";color:var(--sub)}
+details.ep[open] summary::after{content:"▴"}
+.ml{display:flex;gap:10px;padding:9px 0;border-top:1px solid var(--line);align-items:flex-start}
+.ml:first-of-type{margin-top:10px}
+.ml .ago{width:78px;flex:none;color:var(--sub);font-size:13px;padding-top:2px}
+.ml .body{flex:1;min-width:0}
+.rk{display:grid;grid-template-columns:26px 1fr auto;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}
+.rk:first-child{border-top:0}
+.rk .n{color:var(--sub);font-weight:700}
+.rk .v{font-size:13px;color:var(--sub);font-variant-numeric:tabular-nums}
+.bar{grid-column:2/4;height:6px;border-radius:99px;background:var(--bg);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--bad);border-radius:99px;opacity:.85}
+#tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);z-index:20}
+#tabs .in{max-width:560px;margin:0 auto;display:flex}
+#tabs button{flex:1;border:0;background:none;color:var(--sub);font:inherit;font-size:11px;font-weight:600;padding:8px 0 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
+#tabs button.on{color:var(--accent)}
+#tabs svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));transform:translate(-50%,10px);background:#222;color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:90;white-space:nowrap}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+<div class="app"><main id="view"></main></div>
+<nav id="tabs"></nav>
+<div id="toast"></div>
+<script>
+(function(){
+'use strict';
+const $=(s,r=document)=>r.querySelector(s);
+function h(tag,attrs,...kids){
+  const e=document.createElement(tag);
+  if(attrs)for(const k in attrs){
+    const v=attrs[k];
+    if(v==null||v===false)continue;
+    if(k==='class')e.className=v;
+    else if(k.startsWith('on'))e.addEventListener(k.slice(2),v);
+    else e.setAttribute(k,v===true?'':v);
+  }
+  for(const c of kids.flat()){
+    if(c==null||c===false)continue;
+    e.append(c.nodeType?c:document.createTextNode(c));
+  }
+  return e;
+}
+
+//#analysis-start
+const HOUR=36e5;
+function splitItems(text){
+  return String(text||'').split(/[、，,・\/／\n\r\s]+/).map(s=>s.trim()).filter(Boolean);
+}
+function normKey(s){
+  return s.normalize('NFKC').toLowerCase()
+    .replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60))
+    .replace(/\s+/g,'');
+}
+function isDiarrhea(e,thr){return e.type==='stool'&&e.bristol>=thr;}
+function getEpisodes(entries,thr){
+  const ds=entries.filter(e=>isDiarrhea(e,thr)).sort((a,b)=>a.t-b.t);
+  const eps=[];
+  for(const d of ds){
+    const last=eps[eps.length-1];
+    if(last&&d.t-last.end<12*HOUR){last.events.push(d);last.end=d.t;last.max=Math.max(last.max,d.bristol);}
+    else eps.push({start:d.t,end:d.t,max:d.bristol,events:[d]});
+  }
+  return eps;
+}
+function mealsBefore(entries,t,W){
+  return entries.filter(e=>e.type==='meal'&&e.t<t&&e.t>=t-W*HOUR).sort((a,b)=>b.t-a.t);
+}
+function ranking(entries,thr,W,now){
+  const diar=entries.filter(e=>isDiarrhea(e,thr)).map(e=>e.t).sort((a,b)=>a-b);
+  const map=new Map();
+  for(const m of entries){
+    if(m.type!=='meal')continue;
+    const seen=new Map();
+    for(const raw of splitItems(m.text)){const k=normKey(raw);if(k&&!seen.has(k))seen.set(k,raw);}
+    if(!seen.size)continue;
+    const followed=diar.some(d=>d>m.t&&d<=m.t+W*HOUR);
+    if(!followed&&m.t>now-W*HOUR)continue;
+    for(const [k,raw] of seen){
+      let r=map.get(k);
+      if(!r){r={key:k,name:raw,n:0,hit:0};map.set(k,r);}
+      r.n++;if(followed)r.hit++;
+    }
+  }
+  return [...map.values()];
+}
+//#analysis-end
+
+/* ---------- 保存まわり ---------- */
+let db=null,dbOK=false,entries=[],tab='log';
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+function openDB(){
+  return new Promise((res,rej)=>{
+    if(!window.indexedDB)return rej(new Error('no idb'));
+    const r=indexedDB.open('onaka-log',1);
+    r.onupgradeneeded=()=>{r.result.createObjectStore('entries',{keyPath:'id'});};
+    r.onsuccess=()=>res(r.result);
+    r.onerror=()=>rej(r.error);
+  });
+}
+function tx(mode,fn){
+  return new Promise((res,rej)=>{
+    if(!db)return res();
+    const t=db.transaction('entries',mode);
+    let out;
+    try{out=fn(t.objectStore('entries'));}catch(e){return rej(e);}
+    t.oncomplete=()=>res(out&&out.result!==undefined?out.result:undefined);
+    t.onerror=()=>rej(t.error);
+    t.onabort=()=>rej(t.error);
+  });
+}
+const dbAll=()=>tx('readonly',s=>s.getAll());
+const dbPut=list=>tx('readwrite',s=>{list.forEach(e=>s.put(e));});
+const dbDel=id=>tx('readwrite',s=>{s.delete(id);});
+const dbClear=()=>tx('readwrite',s=>{s.clear();});
+
+const S={theme:'light',thr:6,win:48,rankSort:'count',lastBackup:0};
+function loadS(){try{Object.assign(S,JSON.parse(localStorage.getItem('onaka-settings')||'{}'));}catch(e){}}
+function saveS(){try{localStorage.setItem('onaka-settings',JSON.stringify(S));}catch(e){}}
+function applyTheme(){
+  let m=S.theme;
+  if(m==='auto')m=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  document.documentElement.dataset.theme=m;
+  const meta=$('meta[name=theme-color]');
+  if(meta)meta.setAttribute('content',m==='dark'?'#0e1113':'#ffffff');
+}
+
+async function saveEntry(e){
+  try{await dbPut([e]);}catch(err){toast('保存に失敗しました');return false;}
+  const i=entries.findIndex(x=>x.id===e.id);
+  if(i>=0)entries[i]=e;else entries.push(e);
+  return true;
+}
+async function removeEntry(id){
+  try{await dbDel(id);}catch(err){toast('削除に失敗しました');return false;}
+  entries=entries.filter(x=>x.id!==id);
+  return true;
+}
+
+/* ---------- 表示用の小道具 ---------- */
+const pad=n=>String(n).padStart(2,'0');
+const DOW='日月火水木金土';
+const fmtTime=t=>{const d=new Date(t);return pad(d.getHours())+':'+pad(d.getMinutes());};
+const fmtDay=t=>{const d=new Date(t);return (d.getMonth()+1)+'月'+d.getDate()+'日（'+DOW[d.getDay()]+'）';};
+const fmtShort=t=>{const d=new Date(t);return (d.getMonth()+1)+'/'+d.getDate()+'('+DOW[d.getDay()]+') '+fmtTime(t);};
+const dayKey=t=>{const d=new Date(t);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());};
+const toLocalInput=t=>dayKey(t)+'T'+fmtTime(t);
+function agoText(ms){
+  const m=Math.round(ms/6e4);
+  if(m<60)return '約'+Math.max(m,1)+'分前';
+  return '約'+Math.round(ms/HOUR)+'時間前';
+}
+function mealByHour(hr){return hr<4?'夜':hr<10?'朝':hr<15?'昼':hr<17?'間食':'夜';}
+const BR=[null,
+  ['コロコロ便','硬くて小さな粒状（強い便秘）'],
+  ['硬い便','ソーセージ状だが硬いかたまり'],
+  ['やや硬い便','表面にひびがある'],
+  ['ふつうの便','表面がなめらかで柔らかい'],
+  ['やや柔らかい便','形のはっきりした柔らかいかたまり'],
+  ['泥状便','形がなくぐずぐず（下痢の目安）'],
+  ['水様便','固形物がなく液体状（下痢）']];
+const brClass=n=>n>=6?'bad':n<=2?'warn':'ok';
+const TAGS=['腹痛','吐き気','発熱','急な便意','残便感','血が混じる'];
+
+let tt;
+function toast(msg){
+  const el=$('#toast');el.textContent=msg;el.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(()=>el.classList.remove('show'),2200);
+}
+function seg(opts,val,cb){
+  const wrap=h('div',{class:'seg'});
+  const draw=()=>wrap.replaceChildren(...opts.map(([v,l])=>h('button',{type:'button',class:v===val?'on':'',onclick:()=>{val=v;draw();cb(v);}},l)));
+  draw();return wrap;
+}
+function openSheet(title,build){
+  const wrap=h('div',{class:'wrap'});
+  const sheet=h('div',{class:'sheet'});
+  const close=()=>{wrap.remove();document.body.style.overflow='';};
+  sheet.append(h('div',{class:'sheet-head'},h('h2',null,title),h('button',{class:'x',type:'button','aria-label':'閉じる',onclick:close},'×')));
+  sheet.append(build(close));
+  wrap.append(sheet);
+  document.body.append(wrap);
+  document.body.style.overflow='hidden';
+}
+async function fileToDataURL(file){
+  const url=URL.createObjectURL(file);
+  try{
+    const img=new Image();
+    await new Promise((ok,ng)=>{img.onload=ok;img.onerror=ng;img.src=url;});
+    const sc=Math.min(1,1000/Math.max(img.width,img.height));
+    const c=document.createElement('canvas');
+    c.width=Math.round(img.width*sc);c.height=Math.round(img.height*sc);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    return c.toDataURL('image/jpeg',0.72);
+  }finally{URL.revokeObjectURL(url);}
+}
+function topItems(n){
+  const m=new Map();
+  for(const e of entries){
+    if(e.type!=='meal')continue;
+    const seen=new Set();
+    for(const raw of splitItems(e.text)){
+      const k=normKey(raw);if(!k||seen.has(k))continue;
+      seen.add(k);
+      const r=m.get(k)||{name:raw,c:0};r.c++;m.set(k,r);
+    }
+  }
+  return [...m.values()].sort((a,b)=>b.c-a.c).slice(0,n).map(r=>r.name);
+}
+
+/* ---------- 入力フォーム ---------- */
+function openMealForm(entry){
+  const st={meal:entry?entry.meal:mealByHour(new Date().getHours()),photo:entry?entry.photo:null};
+  openSheet(entry?'食事を編集':'食事を記録',close=>{
+    const root=h('div',{class:'form'});
+    const mealSeg=seg(['朝','昼','夜','間食'].map(x=>[x,x]),st.meal,v=>{st.meal=v;});
+    const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:Date.now())});
+    const hint=h('div',{class:'note'});
+    const prev=h('div',{class:'chips small'});
+    const ta=h('textarea',{rows:3,placeholder:'例：白ごはん、味噌汁、納豆',oninput:()=>drawPrev()});
+    ta.value=entry?entry.text:'';
+    const drawPrev=()=>{
+      const items=splitItems(ta.value);
+      prev.replaceChildren(...items.map(x=>h('span',{class:'chip'},x)));
+      hint.textContent=items.length?items.length+'品として数えます':'「、」や改行で区切ると、分析で1品ずつ数えられます';
+    };
+    const recent=topItems(12);
+    const recentBox=recent.length?h('div',null,
+      h('div',{class:'lab'},'よく食べるもの（タップで追加）'),
+      h('div',{class:'chips'},recent.map(x=>h('button',{type:'button',class:'chip tap',onclick:()=>{
+        const v=ta.value.trimEnd();
+        ta.value=v&&!/[、,，]$/.test(v)?v+'、'+x:v+x;
+        drawPrev();
+      }},x)))):null;
+    const photoBox=h('div',{class:'photo'});
+    const drawPhoto=()=>photoBox.replaceChildren(...(st.photo?[
+      h('img',{src:st.photo,alt:'食事の写真'}),
+      h('button',{type:'button',class:'btn small danger',onclick:()=>{st.photo=null;drawPhoto();}},'写真を外す')]:[]));
+    async function pick(ev){
+      const f=ev.target.files[0];ev.target.value='';
+      if(!f)return;
+      try{st.photo=await fileToDataURL(f);drawPhoto();}catch(err){toast('写真を読み込めませんでした');}
+    }
+    const cam=h('input',{type:'file',accept:'image/*',capture:'environment',hidden:true,onchange:pick});
+    const lib=h('input',{type:'file',accept:'image/*',hidden:true,onchange:pick});
+    const save=h('button',{class:'btn primary block',type:'button',onclick:async()=>{
+      const text=ta.value.trim();
+      const t=new Date(dt.value).getTime();
+      if(isNaN(t)){toast('日時を入れてください');return;}
+      if(!text&&!st.photo){toast('食べた物か写真を入れてください');return;}
+      const e={id:entry?entry.id:uid(),type:'meal',t,meal:st.meal,text,photo:st.photo||null};
+      if(await saveEntry(e)){close();render();toast('保存しました');}
+    }},'保存');
+    root.append(
+      h('div',null,h('div',{class:'lab'},'区分'),mealSeg),
+      h('div',null,h('div',{class:'lab'},'日時'),dt),
+      h('div',null,h('div',{class:'lab'},'食べた物'),ta,hint,prev),
+      recentBox,
+      h('div',null,h('div',{class:'lab'},'写真（任意）'),
+        h('div',{class:'row'},
+          h('button',{type:'button',class:'btn',onclick:()=>cam.click()},'カメラで撮る'),
+          h('button',{type:'button',class:'btn',onclick:()=>lib.click()},'写真を選ぶ')),
+        cam,lib,h('div',{style:'height:8px'}),photoBox),
+      save,
+      entry?h('button',{type:'button',class:'btn block danger',onclick:async()=>{
+        if(confirm('この記録を削除しますか？')&&await removeEntry(entry.id)){close();render();toast('削除しました');}
+      }},'削除'):null
+    );
+    drawPrev();drawPhoto();
+    return root;
+  });
+}
+
+function openStoolForm(entry){
+  const st={br:entry?entry.bristol:0,tags:new Set(entry?entry.tags||[]:[])};
+  openSheet(entry?'便を編集':'便を記録',close=>{
+    const root=h('div',{class:'form'});
+    const dt=h('input',{type:'datetime-local',value:toLocalInput(entry?entry.t:Date.now())});
+    const list=h('div');
+    const drawList=()=>list.replaceChildren(...[1,2,3,4,5,6,7].map(n=>h('button',{
+      type:'button',class:'br '+brClass(n)+(st.br===n?' on':''),onclick:()=>{st.br=n;drawList();}},
+      h('span',{class:'num'},n),
+      h('span',{class:'tx'},h('b',null,BR[n][0]),h('small',null,BR[n][1])))));
+    const tagBox=h('div',{class:'chips'});
+    const drawTags=()=>tagBox.replaceChildren(...TAGS.map(x=>h('button',{type:'button',class:'chip tap'+(st.tags.has(x)?' on':''),onclick:()=>{
+      if(st.tags.has(x))st.tags.delete(x);else st.tags.add(x);
+      drawTags();
+    }},x)));
+    const memo=h('input',{type:'text',placeholder:'メモ（任意）　例：おなかがキリキリ痛む'});
+    memo.value=entry?entry.memo||'':'';
+    const save=h('button',{class:'btn primary block',type:'button',onclick:async()=>{
+      const t=new Date(dt.value).getTime();
+      if(isNaN(t)){toast('日時を入れてください');return;}
+      if(!st.br){toast('便の状態を選んでください');return;}
+      const e={id:entry?entry.id:uid(),type:'stool',t,bristol:st.br,tags:[...st.tags],memo:memo.value.trim()};
+      if(await saveEntry(e)){close();render();toast('保存しました');}
+    }},'保存');
+    root.append(
+      h('div',null,h('div',{class:'lab'},'日時'),dt),
+      h('div',null,h('div',{class:'lab'},'便の状態（ブリストルスケール）'),list),
+      h('div',null,h('div',{class:'lab'},'いっしょにあった症状'),tagBox),
+      h('div',null,h('div',{class:'lab'},'メモ'),memo),
+      save,
+      entry?h('button',{type:'button',class:'btn block danger',onclick:async()=>{
+        if(confirm('この記録を削除しますか？')&&await removeEntry(entry.id)){close();render();toast('削除しました');}
+      }},'削除'):null
+    );
+    drawList();drawTags();
+    return root;
+  });
+}
+
+/* ---------- 画面 ---------- */
+function entryRow(e){
+  const body=e.type==='meal'
+    ?h('div',{class:'body'},
+        h('div',{class:'top'},h('span',{class:'tag meal'},e.meal),h('span',{class:'time'},fmtTime(e.t))),
+        e.text?h('div',{class:'text'},e.text):h('div',{class:'text sub'},'（写真のみ）'))
+    :h('div',{class:'body'},
+        h('div',{class:'top'},h('span',{class:'tag '+brClass(e.bristol)},'便 '+e.bristol),h('span',{class:'time'},fmtTime(e.t))),
+        h('div',{class:'text'},BR[e.bristol][0]),
+        ((e.tags&&e.tags.length)||e.memo)?h('div',{class:'chips small',style:'margin-top:4px'},
+          ...(e.tags||[]).map(x=>h('span',{class:'chip'},x)),
+          e.memo?h('span',{class:'memo'},e.memo):null):null);
+  return h('div',{class:'entry',role:'button',tabindex:'0',onclick:()=>e.type==='meal'?openMealForm(e):openStoolForm(e)},
+    body,e.photo?h('img',{class:'thumb',src:e.photo,alt:''}):null);
+}
+
+function viewLog(){
+  const v=h('div');
+  v.append(h('h1',null,'おなかログ'),h('div',{class:'sub'},fmtDay(Date.now())));
+  v.append(h('div',{class:'row add'},
+    h('button',{class:'btn add-meal',type:'button',onclick:()=>openMealForm()},'＋ 食事'),
+    h('button',{class:'btn add-stool',type:'button',onclick:()=>openStoolForm()},'＋ 便')));
+  if(!dbOK)v.append(h('div',{class:'banner'},h('span',null,'この環境ではデータを保存できません。プライベートブラウズでは使えません。')));
+  else if(entries.length&&(!S.lastBackup||Date.now()-S.lastBackup>14*24*HOUR))
+    v.append(h('div',{class:'banner'},h('span',null,S.lastBackup?'バックアップが2週間以上前です':'まだバックアップを取っていません'),
+      h('button',{class:'btn',type:'button',onclick:()=>setTab('settings')},'設定へ')));
+  if(!entries.length){
+    v.append(h('div',{class:'empty'},'まだ記録がありません。上のボタンから、食事か便を記録してください。'));
+    return v;
+  }
+  const hasD=new Set(entries.filter(e=>isDiarrhea(e,S.thr)).map(e=>dayKey(e.t)));
+  const sorted=[...entries].sort((a,b)=>b.t-a.t);
+  let cur='';
+  for(const e of sorted){
+    const k=dayKey(e.t);
+    if(k!==cur){cur=k;v.append(h('div',{class:'day'},fmtDay(e.t),hasD.has(k)?h('span',{class:'tag bad'},'下痢あり'):null));}
+    v.append(entryRow(e));
+  }
+  return v;
+}
+
+function viewAnalysis(){
+  const v=h('div');
+  const W=S.win,thr=S.thr;
+  v.append(h('h1',null,'分析'));
+  v.append(h('div',{class:'sub',style:'margin-bottom:12px'},'下痢＝ブリストル'+thr+(thr===7?'':'以上')+'の便（設定で変更できます）'));
+  v.append(h('div',{class:'lab'},'さかのぼる時間'),seg([[24,'24時間'],[48,'48時間']],W,x=>{S.win=x;saveS();render();}));
+  const eps=getEpisodes(entries,thr);
+  const nm=entries.filter(e=>e.type==='meal').length,ns=entries.length-nm;
+  v.append(h('div',{class:'sub',style:'margin:10px 2px 0'},'食事 '+nm+'件 ／ 便 '+ns+'件 ／ 下痢 '+eps.length+'回'));
+  if(!eps.length){
+    v.append(h('div',{class:'empty'},'下痢の記録がまだありません。記録がたまると、ここに「前に食べた物」の一覧とランキングが出ます。'));
+    return v;
+  }
+  v.append(h('div',{class:'sec'},'下痢の前に食べた物'));
+  v.append(h('div',{class:'note'},'下痢が始まった時刻から、'+W+'時間さかのぼった食事です。近い順に並んでいます。'));
+  [...eps].reverse().forEach((ep,i)=>{
+    const ms=mealsBefore(entries,ep.start,W);
+    const d=h('details',{class:'ep'},h('summary',null,
+      h('span',null,fmtShort(ep.start)),
+      h('span',{class:'tag bad'},'便 '+ep.max+(ep.events.length>1?'（'+ep.events.length+'回）':''))));
+    if(i===0)d.setAttribute('open','');
+    if(!ms.length)d.append(h('div',{class:'note',style:'margin-top:10px'},'この間の食事の記録がありません（記録もれの可能性があります）'));
+    ms.forEach(m=>d.append(h('div',{class:'ml'},
+      h('div',{class:'ago'},agoText(ep.start-m.t)),
+      h('div',{class:'body'},h('span',{class:'tag meal'},m.meal),' ',m.text?h('span',{class:'text'},m.text):h('span',{class:'sub'},'（写真のみ）')),
+      m.photo?h('img',{class:'thumb',src:m.photo,alt:'',style:'width:44px;height:44px'}):null)));
+    v.append(d);
+  });
+
+  v.append(h('div',{class:'sec'},'下痢の前に食べた物ランキング'));
+  v.append(seg([['count','回数順'],['rate','割合順']],S.rankSort,x=>{S.rankSort=x;saveS();render();}));
+  let rows=ranking(entries,thr,W,Date.now()).filter(r=>r.hit>0);
+  if(S.rankSort==='rate'){
+    rows=rows.filter(r=>r.n>=2).sort((a,b)=>(b.hit/b.n-a.hit/a.n)||b.hit-a.hit);
+    v.append(h('div',{class:'note',style:'margin-top:8px'},'2回以上食べた物だけを、「食べた回のうち下痢が続いた割合」の高い順に並べています。'));
+  }else{
+    rows.sort((a,b)=>b.hit-a.hit||(b.hit/b.n-a.hit/a.n));
+    v.append(h('div',{class:'note',style:'margin-top:8px'},'食べてから'+W+'時間以内に下痢があった回数の多い順です。白ごはんなど毎日食べる物は回数が多くなりがちなので、右側の割合もあわせて見てください。'));
+  }
+  rows=rows.slice(0,20);
+  if(!rows.length)v.append(h('div',{class:'empty'},'表示できる食べ物がありません。食べた物の名前を入れて記録すると集計されます。'));
+  else{
+    const max=Math.max(...rows.map(r=>r.hit));
+    const box=h('div',{class:'card'});
+    rows.forEach((r,i)=>box.append(h('div',{class:'rk'},
+      h('div',{class:'n'},i+1),
+      h('div',null,r.name),
+      h('div',{class:'v'},r.n+'回中 '+r.hit+'回（'+Math.round(r.hit/r.n*100)+'%）'),
+      h('div',{class:'bar'},h('i',{style:'width:'+Math.round(r.hit/max*100)+'%'})))));
+    v.append(box);
+  }
+  v.append(h('div',{class:'note'},'写真だけの記録は集計に入りません。便の記録が抜けていると、結果がずれます。原因を決めつけるものではなく、目安として使ってください。血便・高熱・強い腹痛が続くときは医療機関に相談してください。'));
+  return v;
+}
+
+function csvCell(x){x=String(x==null?'':x);return /[",\n]/.test(x)?'"'+x.replace(/"/g,'""')+'"':x;}
+async function shareOrDownload(name,blob){
+  const file=new File([blob],name,{type:blob.type});
+  try{
+    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file]});return true;}
+  }catch(e){if(e&&e.name==='AbortError')return false;}
+  const a=h('a',{href:URL.createObjectURL(blob),download:name});
+  document.body.append(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},4000);
+  return true;
+}
+function clean(e){
+  if(!e||typeof e!=='object')return null;
+  const t=Number(e.t);if(!isFinite(t))return null;
+  const id=String(e.id||uid());
+  if(e.type==='meal')return{id,type:'meal',t,meal:['朝','昼','夜','間食'].includes(e.meal)?e.meal:'間食',text:String(e.text||''),
+    photo:typeof e.photo==='string'&&e.photo.startsWith('data:image/')?e.photo:null};
+  if(e.type==='stool'){
+    const b=Math.round(Number(e.bristol));if(!(b>=1&&b<=7))return null;
+    return{id,type:'stool',t,bristol:b,tags:Array.isArray(e.tags)?e.tags.map(String).slice(0,10):[],memo:String(e.memo||'')};
+  }
+  return null;
+}
+async function importFile(f){
+  try{
+    const data=JSON.parse(await f.text());
+    const list=(data.entries||[]).map(clean).filter(Boolean);
+    if(!list.length){toast('復元できる記録がありません');return;}
+    if(!confirm(list.length+'件の記録を読み込みます。同じ記録は上書きされます。よろしいですか？'))return;
+    await dbPut(list);
+    const map=new Map(entries.map(e=>[e.id,e]));
+    list.forEach(e=>map.set(e.id,e));
+    entries=[...map.values()];
+    render();toast(list.length+'件を復元しました');
+  }catch(err){toast('ファイルを読み込めませんでした');}
+}
+
+function viewSettings(){
+  const v=h('div');
+  v.append(h('h1',null,'設定'),h('div',{style:'height:12px'}));
+  v.append(h('div',{class:'card'},h('h3',null,'見た目'),
+    seg([['light','ライト'],['dark','ダーク'],['auto','端末に合わせる']],S.theme,x=>{S.theme=x;saveS();applyTheme();})));
+  v.append(h('div',{class:'card'},h('h3',null,'下痢とみなす便の基準'),
+    seg([[5,'5以上'],[6,'6以上'],[7,'7のみ']],S.thr,x=>{S.thr=x;saveS();}),
+    h('div',{class:'note',style:'margin-top:8px'},'ブリストルスケールの数字です。分析と「下痢あり」の表示に使います。')));
+  const info=h('div',{class:'note'});
+  if(navigator.storage&&navigator.storage.estimate)navigator.storage.estimate().then(r=>{info.textContent='このアプリの使用量：約'+(r.usage/1048576).toFixed(1)+'MB';}).catch(()=>{});
+  const restore=h('input',{type:'file',accept:'application/json,.json',hidden:true,onchange:ev=>{const f=ev.target.files[0];ev.target.value='';if(f)importFile(f);}});
+  v.append(h('div',{class:'card stack'},h('h3',null,'データ'),
+    h('div',{class:'note'},'記録は '+entries.length+' 件。最後のバックアップ：'+(S.lastBackup?fmtShort(S.lastBackup):'なし')),
+    h('button',{class:'btn block primary',type:'button',onclick:async()=>{
+      const blob=new Blob([JSON.stringify({app:'onaka-log',version:1,exported:Date.now(),entries})],{type:'application/json'});
+      if(await shareOrDownload('onaka-log-backup-'+dayKey(Date.now())+'.json',blob)){S.lastBackup=Date.now();saveS();render();toast('書き出しました');}
+    }},'バックアップを書き出す（写真つき）'),
+    h('button',{class:'btn block',type:'button',onclick:async()=>{
+      const rows=[['日時','種類','区分','内容','ブリストル','症状','メモ']];
+      [...entries].sort((a,b)=>a.t-b.t).forEach(e=>rows.push([dayKey(e.t)+' '+fmtTime(e.t),e.type==='meal'?'食事':'便',e.meal||'',e.text||'',e.bristol||'',(e.tags||[]).join('/'),e.memo||'']));
+      const blob=new Blob(['﻿'+rows.map(r=>r.map(csvCell).join(',')).join('\r\n')],{type:'text/csv'});
+      await shareOrDownload('onaka-log-'+dayKey(Date.now())+'.csv',blob);
+    }},'CSVで書き出す（写真なし）'),
+    h('button',{class:'btn block',type:'button',onclick:()=>restore.click()},'バックアップから復元する'),restore,
+    h('button',{class:'btn block danger',type:'button',onclick:async()=>{
+      if(!entries.length){toast('削除する記録がありません');return;}
+      if(!confirm('すべての記録を削除します。元に戻せません。よろしいですか？'))return;
+      if(!confirm('本当に削除しますか？（バックアップを取っていない場合は消えます）'))return;
+      try{await dbClear();entries=[];render();toast('すべて削除しました');}catch(err){toast('削除に失敗しました');}
+    }},'すべての記録を削除'),info));
+  v.append(h('div',{class:'card'},h('h3',null,'このアプリについて'),
+    h('div',{class:'note',style:'font-size:13px'},'記録はこのiPhoneの中だけに保存され、外部には送信されません。ホーム画面に追加したアイコンから開いたときの記録は、Safariで直接開いたときの記録とは別に保存されます。機種変更や端末の初期化に備えて、ときどきバックアップを書き出してください。')));
+  return v;
+}
+
+/* ---------- 画面切り替え ---------- */
+const ICONS={
+  log:'<path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/>',
+  analysis:'<path d="M5 20V10M12 20V4M19 20v-7"/>',
+  settings:'<path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/>'
+};
+function drawTabs(){
+  const nav=$('#tabs');
+  nav.replaceChildren(h('div',{class:'in'},...[['log','記録'],['analysis','分析'],['settings','設定']].map(([k,l])=>{
+    const b=h('button',{type:'button',class:tab===k?'on':'',onclick:()=>setTab(k)},l);
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 24 24');svg.innerHTML=ICONS[k];
+    b.prepend(svg);
+    return b;
+  })));
+}
+function setTab(k){tab=k;render();window.scrollTo(0,0);}
+function render(){
+  $('#view').replaceChildren(tab==='log'?viewLog():tab==='analysis'?viewAnalysis():viewSettings());
+  drawTabs();
+}
+
+(async function init(){
+  loadS();applyTheme();
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(S.theme==='auto')applyTheme();});}catch(e){}
+  try{db=await openDB();dbOK=true;entries=(await dbAll())||[];}catch(e){dbOK=false;}
+  try{if(navigator.storage&&navigator.storage.persist)navigator.storage.persist();}catch(e){}
+  render();
+})();
+})();
+</script>
+</body>
+</html>
